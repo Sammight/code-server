@@ -60,6 +60,7 @@ RUN cd /tmp && \
   mv code-server* /usr/local/lib/code-server && \
   ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+RUN export NVM_DIR="$HOME/.nvm"
 RUN nvm install --lts
 ENV PORT=8080
 EXPOSE 8080
