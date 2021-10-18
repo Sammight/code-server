@@ -22,9 +22,12 @@ RUN apt-get install -y tzdata && \
     git \
     procps \
     ssh \
+    default-jre \
+    default-jdk \
     sudo \
     vim \
    rclone \
+   php \
    fuse \
     && rm -rf /var/lib/apt/lists/*
 
@@ -56,13 +59,23 @@ RUN cd /tmp && \
   `| tar -xzf - && \
   mv code-server* /usr/local/lib/code-server && \
   ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
-
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+RUN nvm install --lts
 ENV PORT=8080
 EXPOSE 8080
 USER coder
 WORKDIR /home/coder
 COPY run.sh /home/coder
 RUN code-server --install-extension liximomo.sftp --force
+RUN code-server --install-extension zhuangtongfa.Material-theme --force
+RUN code-server --install-extension vscjava.vscode-java-pack --force
+RUN code-server --install-extension ms-vscode.cpptools --force
+RUN code-server --install-extension waderyan.nodejs-extension-pack --force
+RUN code-server --install-extension felixfbecker.php-pack --force
+RUN code-server --install-extension felixfbecker.php-pack --force
+RUN code-server --install-extension redhat.vscode-yaml --force
+RUN code-server --install-extension redhat.vscode-xml --force
+
 RUN mkdir -p /home/coder/.vscode
 COPY sftp.json /home/coder/.vscode
 
