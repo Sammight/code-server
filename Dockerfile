@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+#FROM ubuntu:20.04
+FROM heroku/heroku:20-build.v66
 
 #use help to debug and finding whats wrong with my Dockerfile not working properly on heroku
 # https://github.com/ivang7/heroku-vscode
