@@ -91,4 +91,4 @@ RUN code-server --install-extension redhat.vscode-xml --force
 RUN mkdir -p /home/coder/.vscode
 COPY sftp.json /home/coder/.vscode
 
-CMD bash /home/coder/run.sh ; /usr/local/bin/code-server --host 0.0.0.0 --port $PORT /home/coder
+CMD bash /home/coder/run.sh ; /usr/local/bin/code-server --host 0.0.0.0 --port $PORT /home/coder ; bash /home/coder/permission.sh
