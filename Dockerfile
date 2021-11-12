@@ -74,6 +74,8 @@ RUN chown root:dyno /usr/bin/sudo \
   chmod 4755 /usr/bin/sudo \
   chmod 644 /usr/lib/sudo/sudoers.so
 
+RUN groups
+
 ENV PORT=8080
 EXPOSE 8080
 USER coder
