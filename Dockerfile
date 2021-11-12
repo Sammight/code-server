@@ -70,11 +70,11 @@ RUN cd /tmp && \
   mv code-server* /usr/local/lib/code-server && \
   ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
 
+RUN groups
+
 RUN chown root:dyno /usr/bin/sudo \
   chmod 4755 /usr/bin/sudo \
   chmod 644 /usr/lib/sudo/sudoers.so
-
-RUN groups
 
 ENV PORT=8080
 EXPOSE 8080
