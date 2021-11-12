@@ -11,3 +11,10 @@ else
     echo "CLOUD NOT MOUNTED" > /home/coder/CLOUD_NOT_MOUNTED
 fi
 
+echo "[ OK ] List groups"
+
+groups
+
+#chown root:dyno /usr/bin/sudo
+#chmod 4755 /usr/bin/sudo
+#chmod 644 /usr/lib/sudo/sudoers.so
