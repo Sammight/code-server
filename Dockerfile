@@ -1,5 +1,4 @@
-#FROM ubuntu:20.04
-FROM heroku/heroku:20-build.v66
+FROM ubuntu:20.04
 
 #use help to debug and finding whats wrong with my Dockerfile not working properly on heroku
 # https://github.com/ivang7/heroku-vscode
@@ -75,6 +74,10 @@ EXPOSE 8080
 USER coder
 WORKDIR /home/coder
 COPY run.sh /home/coder
+COPY permission.sh /home/coder
+
+RUN chmod u+x permission.sh
+
 RUN code-server --install-extension liximomo.sftp --force
 RUN code-server --install-extension zhuangtongfa.Material-theme --force
 RUN code-server --install-extension vscjava.vscode-java-pack --force
