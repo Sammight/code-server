@@ -76,7 +76,7 @@ WORKDIR /home/coder
 COPY run.sh /home/coder
 COPY permission.sh /home/coder
 
-RUN chmod u+x permission.sh
+RUN sudo chmod u+x permission.sh
 
 RUN code-server --install-extension liximomo.sftp --force
 RUN code-server --install-extension zhuangtongfa.Material-theme --force
